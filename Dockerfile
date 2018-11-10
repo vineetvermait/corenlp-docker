@@ -13,4 +13,5 @@ RUN wget https://nlp.stanford.edu/software/stanford-corenlp-full-${VERSION}.zip 
     && rm stanford-corenlp-full-${VERSION}.zip
 WORKDIR /stanford-corenlp-full-${VERSION}
 
-CMD java -cp '*' -Xmx8g edu.stanford.nlp.pipeline.StanfordCoreNLPServer
+ENV CLASSPATH /stanford-corenlp-full-${VERSION}/*
+CMD java -Xmx8g edu.stanford.nlp.pipeline.StanfordCoreNLPServer
